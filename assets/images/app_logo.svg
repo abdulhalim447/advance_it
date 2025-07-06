@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-text { font-family: Arial, sans-serif; font-weight: bold; font-size: 28px; }
+    .logo-subtext { font-family: Arial, sans-serif; font-size: 14px; }
+  </style>
+  
+  <!-- Background for SELF text -->
+  <rect x="50" y="10" width="100" height="40" rx="5" fill="#2962FF" />
+  
+  <!-- SELF text -->
+  <text x="68" y="40" fill="#FFFFFF" class="logo-text">SELF</text>
+  
+  <!-- Cart icon -->
+  <path d="M140,20 L160,20 L170,50 L120,50 L120,30 L150,30" stroke="#FF6D00" stroke-width="4" fill="none" />
+  <circle cx="130" cy="60" r="5" fill="#FF6D00" />
+  <circle cx="160" cy="60" r="5" fill="#FF6D00" />
+  
+  <!-- Receipt/paper -->
+  <rect x="125" y="30" width="20" height="15" fill="#F5F5F5" />
+  <line x1="130" y1="35" x2="140" y2="35" stroke="#CCCCCC" stroke-width="1" />
+  <line x1="130" y1="38" x2="140" y2="38" stroke="#CCCCCC" stroke-width="1" />
+  <line x1="130" y1="41" x2="140" y2="41" stroke="#CCCCCC" stroke-width="1" />
+</svg> 

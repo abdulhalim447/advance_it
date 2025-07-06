@@ -1,0 +1,484 @@
+import 'package:advance_it_ltd/screens/e-commerce/ecom_screen/product_list_screen.dart';
+import 'package:flutter/material.dart';
+import '../constants/app_constants.dart';
+import '../widgets/navigation_drawer_widget.dart';
+import '../widgets/bottom_navigation_bar_widget.dart';
+
+class MobileLayout extends StatelessWidget {
+  const MobileLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      appBar: _buildAppBar(),
+      drawer: const NavigationDrawerWidget(),
+      body: _buildBody(),
+      bottomNavigationBar: _buildBottomNavBar(),
+    );
+  }
+
+  /// Builds the AppBar for the home screen.
+  PreferredSizeWidget _buildAppBar() {
+    return AppBar(
+      backgroundColor: AppConstants.primaryColor,
+      elevation: 0,
+      // Remove the manual leading IconButton - Scaffold will handle it automatically
+      title: Image.asset(
+        'assets/images/logo.png', // Make sure to add your logo in the assets folder
+        height: 40,
+        // As a fallback, if the logo is not available, show text.
+        errorBuilder: (context, error, stackTrace) {
+          return const Text(
+            'Advance IT',
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+            ),
+          );
+        },
+      ),
+      centerTitle: true,
+      actions: [
+        IconButton(
+          icon: const Icon(
+            Icons.notifications_none,
+            color: Colors.black,
+            size: 30,
+          ),
+          onPressed: () {
+            // Handle notification button press
+          },
+        ),
+      ],
+    );
+  }
+
+  /// Builds the main content of the home screen.
+  Widget _buildBody() {
+    return SingleChildScrollView(
+      physics: const AlwaysScrollableScrollPhysics(),
+      child: Column(
+        children: [
+          //_buildTopActionButtons(),
+          const SizedBox(height: 5),
+          _buildPromoBanner(),
+          _buildSocialAndActionIcons(),
+          _buildServiceTabs(),
+          const SizedBox(height: 10),
+          const ProductListScreen(),
+        ],
+      ),
+    );
+  }
+
+  /// Builds the two main action buttons: "সেবা নিন" and "আয় করুন".
+
+  /// Builds the promotional banner section.
+  Widget _buildPromoBanner() {
+    return Container(
+      height: 200,
+      width: double.infinity,
+      color: Colors.white,
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+      child: Image.asset(
+        'assets/images/banner.jpg',
+        width: double.infinity,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          return Container(
+            height: 150,
+            color: AppConstants.primaryColor,
+            alignment: Alignment.center,
+            child: const Text(
+              'Banner Image',
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  /// Builds the horizontal list of social media and other action icons.
+  Widget _buildSocialAndActionIcons() {
+    // Data model for the icons
+    final List<Map<String, dynamic>> socialIcons = [
+      {
+        'icon': Icons.facebook,
+        'label': 'ফেইসবুক',
+        'color': Colors.blue.shade800,
+        'isAsset': false,
+      },
+      {
+        'icon': Icons.group,
+        'label': 'গ্রুপ',
+        'color': Colors.blue.shade800,
+        'isAsset': false,
+      },
+      {
+        'icon': "assets/icons/whatsapp.png",
+        'label': 'ওয়াটসঅ্যাপ',
+        'color': Colors.green,
+        'isAsset': true,
+      },
+      {
+        'icon': Icons.telegram,
+        'label': 'টেলিগ্রাম',
+        'color': Colors.blue.shade800,
+        'isAsset': false,
+      },
+      {
+        'icon': "assets/icons/youtube.png",
+        'label': 'ইউটিউব',
+        'color': Colors.red,
+        'isAsset': true,
+      },
+    ];
+
+    return Container(
+      color: Colors.grey[200],
+      padding: const EdgeInsets.fromLTRB(16, 15, 16, 10),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          // Calculate the optimal item width based on available space
+          final double availableWidth = constraints.maxWidth;
+          final int itemCount = socialIcons.length;
+          final double itemWidth = availableWidth / itemCount;
+
+          // Adjust icon size based on available width
+          final double iconRadius = itemWidth < 70 ? 18 : 22;
+          final double iconSize = itemWidth < 70 ? 20 : 24;
+          final double fontSize = itemWidth < 70 ? 10 : 12;
+
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: socialIcons.map((item) {
+              return Expanded(
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: item['color'], width: 1.5),
+                      ),
+                      child: CircleAvatar(
+                        radius: iconRadius,
+                        backgroundColor: item['color'].withOpacity(0.15),
+                        child: item['isAsset']
+                            ? Image.asset(
+                                item['icon'],
+                                width: iconSize,
+                                height: iconSize,
+                                fit: BoxFit.contain,
+                              )
+                            : Icon(
+                                item['icon'],
+                                color: item['color'],
+                                size: iconSize,
+                              ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      item['label'],
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: fontSize),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+          );
+        },
+      ),
+    );
+  }
+
+  /// Builds the tabbed section for various services.
+  Widget _buildServiceTabs() {
+    return Container(
+      color: AppConstants.primaryColor,
+      margin: const EdgeInsets.only(top: 8),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 5.0),
+            child: Text(
+              "আপনার জন্য নির্বাচিত প্রোজেক্টসমূহ",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'SolaimanLipi',
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            // Remove fixed height to allow dynamic sizing
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+            ),
+            margin: const EdgeInsets.only(top: 4),
+            child: _buildServiceGrid(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Builds the grid of service icons.
+  Widget _buildServiceGrid() {
+    // Data model for grid items based on the screenshot
+    final List<Map<String, dynamic>> serviceItems = [
+      {
+        'icon': 'assets/icons/1.png',
+        'label': 'স্মার্ট আর্নিং',
+        'color': Colors.black,
+        'route': '/smart-earning',
+      },
+      {
+        'icon': 'assets/icons/3.png',
+        'label': 'ড্রাইভ প্যাক',
+        'color': Colors.black,
+        'route': '/drive-pack',
+      },
+      {
+        'icon': 'assets/icons/4.png',
+        'label': 'রিসেলার শপ',
+        'color': Colors.black,
+        'route': '/reseller-shop',
+      },
+      {
+        'icon': 'assets/icons/2.png',
+        'label': 'মোবাইল রিচার্জ',
+        'color': Colors.black,
+        'route': '/mobile-recharge',
+      },
+      {
+        'icon': 'assets/icons/5.png',
+        'label': 'এডভাস একাডেমি',
+        'color': Colors.black,
+        'route': '/advance-academy',
+      },
+      {
+        'icon': 'assets/icons/6.png',
+        'label': 'মনিটাইজড সলিউশন',
+        'color': Colors.black,
+        'route': '/monetized-solution',
+      },
+      {
+        'icon': 'assets/icons/7.png',
+        'label': 'হেলি রাইড',
+        'color': Colors.black,
+        'route': '/heli-ride',
+      },
+      {
+        'icon': 'assets/icons/8.png',
+        'label': 'টুরিস্ট গাইড',
+        'color': Colors.black,
+        'route': '/tourist-guide',
+      },
+      {
+        'icon': 'assets/icons/9.png',
+        'label': 'হজ্জ ওমরা',
+        'color': Colors.black,
+        'route': '/hajj-umrah',
+      },
+      {
+        'icon': 'assets/icons/11.png',
+        'label': 'মার্কেটপ্লেস',
+        'color': Colors.black,
+        'route': '/marketplace',
+      },
+      {
+        'icon': 'assets/icons/12.png',
+        'label': 'এড ওয়ার্ক',
+        'color': Colors.black,
+        'route': '/ad-work',
+      },
+      {
+        'icon': 'assets/icons/13.png',
+        'label': 'জব সলিউশন',
+        'color': Colors.black,
+        'route': '/job-solution',
+      },
+      {
+        'icon': 'assets/icons/14.png',
+        'label': 'ইন্টিরিয়র ডিজাইন',
+        'color': Colors.black,
+        'route': '/interior-design',
+      },
+      {
+        'icon': 'assets/icons/15.png',
+        'label': 'ইভেন্ট ম্যানেজমেন্ট',
+        'color': Colors.black,
+        'route': '/event-management',
+      },
+      {
+        'icon': 'assets/icons/16.png',
+        'label': 'জনপ্রিয় ব্রান্ড',
+        'color': Colors.black,
+        'route': '/popular-brands',
+      },
+      {
+        'icon': 'assets/icons/17.png',
+        'label': 'টিউশন মিডিয়া',
+        'color': Colors.black,
+        'route': '/tuition-media',
+      },
+      {
+        'icon': 'assets/icons/18.png',
+        'label': 'টেকনিশিয়ান',
+        'color': Colors.black,
+        'route': '/technician',
+      },
+      {
+        'icon': 'assets/icons/19.png',
+        'label': 'ডিসকাউন্ট জোন',
+        'color': Colors.black,
+        'route': '/discount-zone',
+      },
+      {
+        'icon': 'assets/icons/20.png',
+        'label': 'ডক্টর সেবা',
+        'color': Colors.black,
+        'route': '/doctor-service',
+      },
+      {
+        'icon': 'assets/icons/21.png',
+        'label': 'ফ্লাইট টিকেট',
+        'color': Colors.black,
+        'route': '/flight-ticket',
+      },
+      {
+        'icon': 'assets/icons/22.png',
+        'label': 'এগ্রো প্রোজেক্ট',
+        'color': Colors.black,
+        'route': '/agro-project',
+      },
+      {
+        'icon': 'assets/icons/23.png',
+        'label': 'কোরআন শিক্ষা',
+        'color': Colors.black,
+        'route': '/quran-education',
+      },
+      {
+        'icon': 'assets/icons/25.png',
+        'label': 'ব্লাড ব্যাংক',
+        'color': Colors.black,
+        'route': '/blood-bank',
+      },
+      {
+        'icon': 'assets/icons/10.png',
+        'label': 'হোটেল বুকিং',
+        'color': Colors.black,
+        'route': '/hotel-booking',
+      },
+    ];
+
+    // Empty list as we're using all items in the main list
+    final List<Map<String, dynamic>> moreServiceItems = [];
+
+    final allItems = [...serviceItems, ...moreServiceItems];
+
+    // Return a container with white background to separate from tabs
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+      ),
+      padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 12.0),
+      // Use LayoutBuilder to make the grid responsive
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          // Calculate number of columns based on available width
+          int crossAxisCount = 4; // Default for large screens
+
+          // Width thresholds for different screen sizes
+          if (constraints.maxWidth < 300) {
+            crossAxisCount = 2; // Very small screens - 2 items per row
+          } else if (constraints.maxWidth < 400) {
+            crossAxisCount = 3; // Medium small screens - 3 items per row
+          }
+          // else keep 4 columns for larger screens
+
+          return GridView.builder(
+            physics:
+                const NeverScrollableScrollPhysics(), // Disable scrolling on the grid
+            shrinkWrap: true, // Allow grid to take only needed space
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
+              crossAxisSpacing: 10,
+            ),
+            itemCount: allItems.length,
+            itemBuilder: (context, index) {
+              final item = allItems[index];
+              return InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, item['route']);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 0.0,
+                  ), // Removed bottom padding
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: AppConstants.primaryColor,
+                            width: 2,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 24,
+                          // backgroundColor: AppConstants.primaryColor,
+                          child: Image.asset(
+                            item['icon'],
+                            fit: BoxFit.cover,
+                            //color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 4), // Reduced from 6 to 4
+                      Flexible(
+                        child: Text(
+                          item['label'],
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+
+  /// Builds the Bottom Navigation Bar.
+  Widget _buildBottomNavBar() {
+    return CustomBottomNavigationBar(
+      currentIndex: 0,
+      onTap: (index) {
+        // Handle navigation
+      },
+    );
+  }
+}
