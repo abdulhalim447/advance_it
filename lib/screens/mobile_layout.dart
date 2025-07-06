@@ -1,6 +1,7 @@
 import 'package:advance_it_ltd/screens/e-commerce/ecom_screen/product_list_screen.dart';
 import 'package:flutter/material.dart';
 import '../constants/app_constants.dart';
+import '../widgets/custom_app_bar_widget.dart';
 import '../widgets/navigation_drawer_widget.dart';
 import '../widgets/bottom_navigation_bar_widget.dart';
 
@@ -11,47 +12,10 @@ class MobileLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      appBar: _buildAppBar(),
+      appBar: const CustomAppBarWidget(),
       drawer: const NavigationDrawerWidget(),
       body: _buildBody(),
       bottomNavigationBar: _buildBottomNavBar(),
-    );
-  }
-
-  /// Builds the AppBar for the home screen.
-  PreferredSizeWidget _buildAppBar() {
-    return AppBar(
-      backgroundColor: AppConstants.primaryColor,
-      elevation: 0,
-      // Remove the manual leading IconButton - Scaffold will handle it automatically
-      title: Image.asset(
-        'assets/images/logo.png', // Make sure to add your logo in the assets folder
-        height: 40,
-        // As a fallback, if the logo is not available, show text.
-        errorBuilder: (context, error, stackTrace) {
-          return const Text(
-            'Advance IT',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
-          );
-        },
-      ),
-      centerTitle: true,
-      actions: [
-        IconButton(
-          icon: const Icon(
-            Icons.notifications_none,
-            color: Colors.black,
-            size: 30,
-          ),
-          onPressed: () {
-            // Handle notification button press
-          },
-        ),
-      ],
     );
   }
 

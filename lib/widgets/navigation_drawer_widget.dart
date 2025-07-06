@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../constants/app_constants.dart';
 
 /// Data model for drawer menu items
 class DrawerMenuItem {
@@ -40,7 +39,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
 
   // Full and masked phone numbers
   final String _maskedPhoneNumber = '014*****084';
-  final String _fullPhoneNumber = '01412345084'; // Replace with actual number
+  final String _fullPhoneNumber = '01412345084';
 
   @override
   Widget build(BuildContext context) {
@@ -54,134 +53,167 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
     );
   }
 
-  /// Builds the drawer header with user profile information
+  /// Builds the drawer header with enhanced UI/UX
   Widget _buildDrawerHeader(BuildContext context) {
     return Container(
-      height: 330,
+      height: 300,
       width: double.infinity,
-      color: AppConstants.primaryColor,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Colors.orange, Colors.amber.shade500, Colors.yellow],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(3.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Close button
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(
-                    'assets/images/logo.png',
-                    height: 30,
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Text(
-                        'ADVANCE',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      );
-                    },
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.close, color: Colors.black),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                ],
-              ),
-
-              // User Profile Section
-              Center(
-                child: Column(
-                  children: [
-                    // Profile Avatar
-                    CircleAvatar(
-                      radius: 35,
-                      backgroundColor: Colors.white,
-                      child: Icon(
-                        Icons.person,
-                        size: 40,
-                        color: Colors.grey[600],
-                      ),
-                    ),
-
-                    // User Name
-                    const Text(
-                      'JALAL NUR',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-
-                    // Phone Number with toggle
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Text(
-                            _showFullPhoneNumber
-                                ? _fullPhoneNumber
-                                : _maskedPhoneNumber,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        // Toggle button
-                        Switch(
-                          value: _showFullPhoneNumber,
-                          onChanged: (value) {
-                            setState(() {
-                              _showFullPhoneNumber = value;
-                            });
-                          },
-                          activeColor: Colors.black,
-                          activeTrackColor: Colors.grey.shade400,
-                          inactiveThumbColor: Colors.white,
-                          inactiveTrackColor: Colors.grey.shade300,
-                        ),
-                      ],
-                    ),
-
-                    // User Role
-                    const Text(
-                      'Advance Associate',
-                      style: TextStyle(color: Colors.black, fontSize: 16),
-                    ),
-                    const SizedBox(height: 8),
-
-                    // Affiliate ID
-                    const Text(
-                      'Advance Affiliate ID: 123461',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // _buildHeaderTop(context),
+              const SizedBox(height: 25),
+              _buildSimpleProfile(context),
             ],
           ),
         ),
       ),
     );
   }
+
+  /// Builds the simple header top section
+  /* Widget _buildHeaderTop(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset(
+          'assets/images/logo.png',
+          height: 28,
+          errorBuilder: (context, error, stackTrace) {
+            return const Text(
+              'ADVANCE',
+              style: TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            );
+          },
+        ),
+        IconButton(
+          icon: const Icon(
+            Icons.close_rounded,
+            color: Colors.black87,
+            size: 20,
+          ),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ],
+    );
+  }
+*/
+  /// Builds the simple profile section
+  Widget _buildSimpleProfile(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              colors: [Colors.red, Colors.amber],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: CircleAvatar(
+              radius: 50,
+              backgroundColor: Colors.white,
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/images/abdul.png',
+                  width: 110,
+                  height: 110,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+        ),
+
+        const SizedBox(height: 10),
+        const Text(
+          'JALAL NUR',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.black87,
+          ),
+        ),
+        const SizedBox(height: 5),
+        //_buildSimplePhoneNumber(),
+        // const SizedBox(height: 2),
+        // Gold Member badge
+        const Text(
+          'Advance Leader',
+          style: TextStyle(
+            fontSize: 16,
+            //fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          'Advance Affiliate ID: 123612',
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.black,
+            //fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    );
+  }
+
+  /// Builds simple phone number with toggle
+  Widget _buildSimplePhoneNumber() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          _showFullPhoneNumber ? _fullPhoneNumber : _maskedPhoneNumber,
+          style: const TextStyle(
+            color: Colors.black87,
+            fontSize: 16,
+            //fontWeight: FontWeight.w600,
+          ),
+        ),
+        const SizedBox(width: 8),
+        Transform.scale(
+          scale: 0.7, // Reduce the size of the switch
+          child: SizedBox(
+            width: 40,
+            height: 20,
+            child: Switch(
+              value: _showFullPhoneNumber,
+              onChanged: (value) {
+                setState(() {
+                  _showFullPhoneNumber = value;
+                });
+              },
+              activeColor: Colors.amber.shade400,
+              activeTrackColor: Colors.amber.shade200,
+              inactiveThumbColor: Colors.grey.shade400,
+              inactiveTrackColor: Colors.grey.shade300,
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  //drawer header is end here=--------------------------------------------------
 
   /// Builds the drawer menu items
   Widget _buildDrawerMenuItems(BuildContext context) {
@@ -192,47 +224,47 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
         onTap: () => _navigateToPage(context, '/dashboard'),
       ),
       DrawerMenuItem(
-        icon: Icons.point_of_sale,
+        icon: Icons.monetization_on,
         title: 'ইনকাম পয়েন্ট',
         onTap: () => _navigateToPage(context, '/income-point'),
       ),
       DrawerMenuItem(
-        icon: Icons.stars,
+        icon: Icons.star,
         title: 'অ্যাডভান্স পয়েন্টস',
         onTap: () => _navigateToPage(context, '/advance-point'),
       ),
       DrawerMenuItem(
-        icon: Icons.add_circle_outline,
+        icon: Icons.payment,
         title: 'পেমেন্ট মেথড',
         onTap: () => _navigateToPage(context, '/add-payment-method'),
       ),
       DrawerMenuItem(
-        icon: Icons.sim_card,
+        icon: Icons.summarize,
         title: 'ইনকাম  সামারি',
         onTap: () => _navigateToPage(context, '/drive-order-history'),
       ),
       DrawerMenuItem(
-        icon: Icons.shopping_bag,
+        icon: Icons.gavel,
         title: 'শপথনামা  ',
         onTap: () => _navigateToPage(context, '/product-order-history'),
       ),
       DrawerMenuItem(
-        icon: Icons.inventory,
+        icon: Icons.info,
         title: 'আমাদের সম্পর্কে',
         onTap: () => _navigateToPage(context, '/about'),
       ),
       DrawerMenuItem(
-        icon: Icons.manage_accounts,
+        icon: Icons.policy,
         title: 'নীতিমালা',
         onTap: () => _navigateToPage(context, '/policy'),
       ),
       DrawerMenuItem(
-        icon: Icons.local_activity,
-        title: 'গোপনীয়তা নীতি',
+        icon: Icons.privacy_tip,
+        title: 'গোপনীয়তা নীতি',
         onTap: () => _navigateToPage(context, '/activity'),
       ),
       DrawerMenuItem(
-        icon: Icons.store,
+        icon: Icons.contact_phone,
         title: 'যোগাযোগ ',
         onTap: () => _navigateToPage(context, '/reseller-vendor'),
       ),
@@ -266,11 +298,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
       return Column(
         children: [
           ListTile(
-            leading: Icon(
-              item.icon,
-              color: AppConstants.primaryColor,
-              size: 24,
-            ),
+            leading: Icon(item.icon, color: Colors.black87, size: 24),
             title: Text(
               item.title,
               style: const TextStyle(
@@ -285,7 +313,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
               child: const Icon(
                 Icons.keyboard_arrow_down,
                 size: 20,
-                color: AppConstants.primaryColor,
+                color: Colors.black87,
               ),
             ),
             onTap: () => _toggleExpansion(index),
@@ -338,7 +366,11 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
       );
     } else {
       return ListTile(
-        leading: Icon(item.icon, color: AppConstants.primaryColor, size: 24),
+        leading: Icon(
+          item.icon,
+          color: Colors.black.withOpacity(0.7),
+          size: 24,
+        ),
         title: Text(
           item.title,
           style: const TextStyle(
