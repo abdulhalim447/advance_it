@@ -1,20 +1,32 @@
 import 'package:flutter/material.dart';
+import '../screens/income_point_scection/income_point_screen.dart';
 
 /// Data model for drawer menu items
 class DrawerMenuItem {
-  final IconData icon;
+  final IconData? icon;
+  final String? assetImage;
   final String title;
   final VoidCallback? onTap;
   final bool hasArrow;
   final List<DrawerSubMenuItem>? subItems;
+  final Color? iconColor;
+  final double? iconSize;
+  final double? imageSize;
 
   DrawerMenuItem({
-    required this.icon,
+    this.icon,
+    this.assetImage,
     required this.title,
     this.onTap,
     this.hasArrow = false,
     this.subItems,
-  });
+    this.iconColor,
+    this.iconSize = 28,
+    this.imageSize = 24,
+  }) : assert(
+         icon != null || assetImage != null,
+         'Either icon or assetImage must be provided',
+       );
 }
 
 /// Data model for drawer sub-menu items
@@ -128,13 +140,14 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
             padding: const EdgeInsets.all(3.0),
             child: CircleAvatar(
               radius: 50,
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.black,
               child: ClipOval(
                 child: Image.asset(
-                  'assets/images/abdul.png',
-                  width: 110,
-                  height: 110,
-                  fit: BoxFit.cover,
+                  'assets/images/logo.png',
+                  width: 80,
+                  height: 80,
+                  color: Color(0xFFFED700),
+                  //fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -143,7 +156,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
 
         const SizedBox(height: 10),
         const Text(
-          'JALAL NUR',
+          'ADVANCE IT',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -219,70 +232,101 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
   Widget _buildDrawerMenuItems(BuildContext context) {
     final List<DrawerMenuItem> menuItems = [
       DrawerMenuItem(
-        icon: Icons.dashboard,
-        title: 'ড্যাশবোর্ড',
+        assetImage: 'assets/icons/home.png',
+        title: 'হোম',
         onTap: () => _navigateToPage(context, '/dashboard'),
+        iconColor: Colors.amber,
+        imageSize: 35, // বড় আইকন সাইজ
       ),
       DrawerMenuItem(
-        icon: Icons.monetization_on,
+        assetImage: 'assets/icons/wallet.png',
         title: 'ইনকাম পয়েন্ট',
         onTap: () => _navigateToPage(context, '/income-point'),
+        iconColor: Colors.green.shade900,
+        imageSize: 32, // কাস্টম ইমেজ সাইজ
       ),
       DrawerMenuItem(
-        icon: Icons.star,
+        assetImage: 'assets/icons/wallet.png',
         title: 'অ্যাডভান্স পয়েন্টস',
+        iconColor: Colors.green.shade900,
         onTap: () => _navigateToPage(context, '/advance-point'),
+        imageSize: 32,
       ),
       DrawerMenuItem(
-        icon: Icons.payment,
+        assetImage: 'assets/icons/wallet.png',
         title: 'পেমেন্ট মেথড',
+        iconColor: Colors.green.shade900,
         onTap: () => _navigateToPage(context, '/add-payment-method'),
+        imageSize: 32,
       ),
       DrawerMenuItem(
-        icon: Icons.summarize,
-        title: 'ইনকাম  সামারি',
-        onTap: () => _navigateToPage(context, '/drive-order-history'),
-      ),
-      DrawerMenuItem(
-        icon: Icons.gavel,
-        title: 'শপথনামা  ',
-        onTap: () => _navigateToPage(context, '/product-order-history'),
-      ),
-      DrawerMenuItem(
-        icon: Icons.info,
+        assetImage: 'assets/icons/aboutme.png',
         title: 'আমাদের সম্পর্কে',
         onTap: () => _navigateToPage(context, '/about'),
+        imageSize: 33,
+        iconColor: Colors.amber,
       ),
       DrawerMenuItem(
-        icon: Icons.policy,
-        title: 'নীতিমালা',
-        onTap: () => _navigateToPage(context, '/policy'),
-      ),
-      DrawerMenuItem(
-        icon: Icons.privacy_tip,
-        title: 'গোপনীয়তা নীতি',
-        onTap: () => _navigateToPage(context, '/activity'),
-      ),
-      DrawerMenuItem(
-        icon: Icons.contact_phone,
+        assetImage: 'assets/icons/jogajog.png',
         title: 'যোগাযোগ ',
-        onTap: () => _navigateToPage(context, '/reseller-vendor'),
+        onTap: () => _navigateToPage(context, '/support'),
+        iconColor: Colors.amber,
+        imageSize: 39, // ছোট ইমেজ সাইজ
       ),
+
+      DrawerMenuItem(
+        assetImage: 'assets/icons/incomesummarry.png',
+        title: 'ইনকাম সামারি',
+        iconColor: Colors.purple.shade800,
+        onTap: () => _navigateToPage(context, '/income-summary'),
+        imageSize: 40,
+      ),
+      DrawerMenuItem(
+        assetImage: 'assets/icons/policy.png',
+        title: 'গোপনীয়তা নীতি',
+        onTap: () => _navigateToPage(context, '/privacy-policy'),
+        imageSize: 33,
+        iconColor: Colors.purple.shade800,
+      ),
+
+      DrawerMenuItem(
+        assetImage: 'assets/icons/sofotnama.png',
+        title: 'শপথনামা  ',
+        iconColor: Colors.blueAccent.shade700,
+        onTap: () => _navigateToPage(context, '/sofotnama'),
+        imageSize: 35,
+      ),
+      DrawerMenuItem(
+        assetImage: 'assets/icons/privacy.png',
+        title: 'অ্যাডভান্স নীতিমালা',
+        onTap: () => _navigateToPage(context, '/nitimala'),
+        imageSize: 35,
+        iconColor: Colors.blueAccent.shade700,
+      ),
+
       DrawerMenuItem(
         icon: Icons.settings,
         title: 'সেটিং',
         onTap: () => _navigateToPage(context, '/settings'),
+        imageSize: 35,
+        iconColor: Colors.lime.shade900,
       ),
       DrawerMenuItem(
         icon: Icons.logout,
         title: 'লগ আউট',
         onTap: () => _handleLogout(context),
+        iconColor: Colors.lime.shade900,
+        iconSize: 30,
+        // ডিফল্ট সাইজ
       ),
     ];
 
-    return ListView.builder(
+    return ListView.separated(
       padding: EdgeInsets.zero,
       itemCount: menuItems.length,
+      separatorBuilder: (context, index) {
+        return Divider(height: 1, color: Colors.yellow.withOpacity(0.3));
+      },
       itemBuilder: (context, index) {
         final item = menuItems[index];
         return _buildDrawerListTile(item, index);
@@ -298,7 +342,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
       return Column(
         children: [
           ListTile(
-            leading: Icon(item.icon, color: Colors.black87, size: 24),
+            leading: _buildLeadingIcon(item),
             title: Text(
               item.title,
               style: const TextStyle(
@@ -312,14 +356,14 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
               duration: const Duration(milliseconds: 200),
               child: const Icon(
                 Icons.keyboard_arrow_down,
-                size: 20,
+                size: 28,
                 color: Colors.black87,
               ),
             ),
             onTap: () => _toggleExpansion(index),
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 20,
-              vertical: 4,
+              vertical: 0,
             ),
           ),
           AnimatedContainer(
@@ -353,7 +397,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
                       onTap: subItem.onTap,
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 20,
-                        vertical: 4,
+                        vertical: 0,
                       ),
                       dense: true,
                     ),
@@ -366,11 +410,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
       );
     } else {
       return ListTile(
-        leading: Icon(
-          item.icon,
-          color: Colors.black.withOpacity(0.7),
-          size: 24,
-        ),
+        leading: _buildLeadingIcon(item),
         title: Text(
           item.title,
           style: const TextStyle(
@@ -380,7 +420,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
           ),
         ),
         onTap: item.onTap,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
       );
     }
   }
@@ -399,13 +439,43 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
   /// Handles navigation to different pages
   void _navigateToPage(BuildContext context, String route) {
     Navigator.pop(context); // Close the drawer
-    // Navigate to the specified route
-    // Navigator.pushNamed(context, route);
 
-    // For now, just show a snackbar
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text('Navigating to $route')));
+    // Use named routes for navigation
+    try {
+      Navigator.pushNamed(context, route);
+    } catch (e) {
+      // Fallback for routes that are not registered
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Route $route not implemented yet')),
+      );
+    }
+  }
+
+  /// Builds the leading icon or image for a drawer menu item
+  Widget _buildLeadingIcon(DrawerMenuItem item) {
+    if (item.assetImage != null) {
+      return Container(
+        width: item.imageSize,
+        height: item.imageSize,
+        padding: const EdgeInsets.all(2),
+        child: Image.asset(
+          item.assetImage!,
+          width: item.imageSize,
+          height: item.imageSize,
+          color: item.iconColor,
+          fit: BoxFit.contain,
+        ),
+      );
+    } else {
+      return Container(
+        padding: const EdgeInsets.all(2),
+        child: Icon(
+          item.icon,
+          color: item.iconColor ?? Colors.black.withOpacity(0.7),
+          size: item.iconSize,
+        ),
+      );
+    }
   }
 
   /// Handles logout functionality
@@ -417,12 +487,47 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('লগ আউট'),
-          content: const Text('আপনি কি নিশ্চিত যে আপনি লগ আউট করতে চান?'),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          elevation: 8,
+          backgroundColor: Colors.white,
+          title: const Text(
+            'লগ আউট',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.red,
+            ),
+          ),
+          content: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey.shade50,
+            ),
+            padding: const EdgeInsets.all(10),
+            child: const Text(
+              'আপনি কি নিশ্চিত যে আপনি লগ আউট করতে চান?',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black87,
+              ),
+            ),
+          ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('বাতিল'),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.grey.shade200,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+              ),
+              child: const Text(
+                'বাতিল',
+                style: TextStyle(color: Colors.black87),
+              ),
             ),
             TextButton(
               onPressed: () {
@@ -432,7 +537,17 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
                   context,
                 ).showSnackBar(const SnackBar(content: Text('লগ আউট হয়েছে')));
               },
-              child: const Text('লগ আউট'),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.red.shade400,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+              ),
+              child: const Text(
+                'লগ আউট',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ],
         );

@@ -1,4 +1,5 @@
 import 'package:advance_it_ltd/screens/e-commerce/ecom_screen/product_list_screen.dart';
+import 'package:advance_it_ltd/widgets/custom_slider.dart';
 import 'package:flutter/material.dart';
 import '../constants/app_constants.dart';
 import '../widgets/custom_app_bar_widget.dart';
@@ -30,6 +31,8 @@ class MobileLayout extends StatelessWidget {
           _buildPromoBanner(),
           _buildSocialAndActionIcons(),
           _buildServiceTabs(),
+          //const SizedBox(height: 10),
+          _buildSliderBanner(),
           const SizedBox(height: 10),
           const ProductListScreen(),
         ],
@@ -47,7 +50,7 @@ class MobileLayout extends StatelessWidget {
       color: Colors.white,
       padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
       child: Image.asset(
-        'assets/images/banner.jpg',
+        'assets/images/app_banner.jpg',
         width: double.infinity,
         fit: BoxFit.cover,
         errorBuilder: (context, error, stackTrace) {
@@ -61,6 +64,56 @@ class MobileLayout extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+
+  /// Builds the promotional banner section.
+  Widget _buildSliderBanner() {
+    return Container(
+      margin: const EdgeInsets.only(top: 10),
+      width: double.infinity,
+      color: Colors.white,
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            //width: 250,
+            height: 40,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.yellow.shade600,
+
+                  Colors.amber.shade500,
+                  Colors.orange.shade400,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              //borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.emoji_events, color: Colors.black, size: 24),
+                const SizedBox(width: 10),
+                Text(
+                  "লিডারশীপ অ্যাচিভার",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 3),
+          const CustomSlider(),
+        ],
       ),
     );
   }
@@ -231,10 +284,10 @@ class MobileLayout extends StatelessWidget {
         'route': '/advance-academy',
       },
       {
-        'icon': 'assets/icons/6.png',
-        'label': 'মনিটাইজড সলিউশন',
+        'icon': 'assets/icons/uddokta.png',
+        'label': 'অ্যাডভান্স উদ্যোক্তা',
         'color': Colors.black,
-        'route': '/monetized-solution',
+        'route': '/uddokta',
       },
       {
         'icon': 'assets/icons/7.png',

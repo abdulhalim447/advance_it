@@ -1,7 +1,18 @@
+import 'package:advance_it_ltd/screens/advance_nitimala/advamce_nitimala.dart';
+import 'package:advance_it_ltd/screens/income_point_scection/advance_point.dart';
+import 'package:advance_it_ltd/screens/income_summary/income_summary.dart';
+import 'package:advance_it_ltd/screens/privacy_policy/privacy_policy.dart';
+import 'package:advance_it_ltd/screens/settings/settings_screen.dart';
+import 'package:advance_it_ltd/screens/shofotnama/sofotnama_screen.dart';
+import 'package:advance_it_ltd/screens/support_section/support_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'screens/mobile_layout.dart';
 import 'screens/smart_earning_section/leadership_screen.dart';
+import 'screens/income_point_scection/income_point_screen.dart';
+import 'screens/about_us/about_us_screen.dart';
+import 'screens/paymen_method_section/add_payment_method.dart';
+import 'screens/paymen_method_section/payment_methods_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +50,7 @@ class SelfAppClone extends StatelessWidget {
       title: 'Advance IT LTD',
       theme: ThemeData(
         primarySwatch: Colors.yellow,
-        fontFamily: 'SolaimanLipi',
+        //fontFamily: 'SolaimanLipi',
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: Colors.white,
@@ -48,7 +59,21 @@ class SelfAppClone extends StatelessWidget {
         ),
       ),
       home: MobileLayout(),
-      routes: {'/smart-earning': (context) => const LeadershipScreen()},
+      routes: {
+        '/dashboard': (context) => const MobileLayout(),
+        '/smart-earning': (context) => const LeadershipScreen(),
+        '/income-point': (context) => const IncomePointScreen(),
+        '/advance-point': (context) => const AdvancePointScreen(),
+        '/about': (context) => const AboutUsScreen(),
+        '/add-payment-method': (context) => const AddPaymentMethod(),
+        '/payment-methods': (context) => const PaymentMethodsScreen(),
+        '/sofotnama': (context) => const SofotnamaScreen(),
+        '/support': (context) => const SupportScreen(),
+        '/nitimala': (context) => const AdvanceNitimalaScreen(),
+        '/privacy-policy': (context) => const PrivacyPolicy(),
+        '/income-summary': (context) => const IncomeSummary(),
+        '/settings': (context) => const SettingsScreen(),
+      },
     );
   }
 }

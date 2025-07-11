@@ -3,7 +3,7 @@
 
 
     <application
-        android:label="Advance IT"
+        android:label="ADVANCE"
         android:name="${applicationName}"
         android:icon="@drawable/image">
         <activity
