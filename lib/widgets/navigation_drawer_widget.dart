@@ -67,8 +67,12 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
 
   /// Builds the drawer header with enhanced UI/UX
   Widget _buildDrawerHeader(BuildContext context) {
+    // Get screen height and calculate responsive header height
+    final screenHeight = MediaQuery.of(context).size.height;
+    final headerHeight = (screenHeight * 0.37);
+
     return Container(
-      height: 300,
+      height: headerHeight,
       width: double.infinity,
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -83,8 +87,8 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
           child: Column(
             children: [
               // _buildHeaderTop(context),
-              const SizedBox(height: 25),
-              _buildSimpleProfile(context),
+              SizedBox(height: screenHeight * 0.02), // Responsive spacing
+              Expanded(child: _buildSimpleProfile(context)),
             ],
           ),
         ),
@@ -92,40 +96,19 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
     );
   }
 
-  /// Builds the simple header top section
-  /* Widget _buildHeaderTop(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Image.asset(
-          'assets/images/logo.png',
-          height: 28,
-          errorBuilder: (context, error, stackTrace) {
-            return const Text(
-              'ADVANCE',
-              style: TextStyle(
-                color: Colors.black87,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
-            );
-          },
-        ),
-        IconButton(
-          icon: const Icon(
-            Icons.close_rounded,
-            color: Colors.black87,
-            size: 20,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ],
-    );
-  }
-*/
+
   /// Builds the simple profile section
   Widget _buildSimpleProfile(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    // Responsive sizes
+    final avatarRadius = (screenHeight * 0.06).clamp(40.0, 55.0);
+    final titleFontSize = (screenWidth * 0.05).clamp(18.0, 22.0);
+    final subtitleFontSize = (screenWidth * 0.04).clamp(14.0, 18.0);
+
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
           decoration: BoxDecoration(
@@ -139,13 +122,13 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
           child: Padding(
             padding: const EdgeInsets.all(3.0),
             child: CircleAvatar(
-              radius: 50,
+              radius: avatarRadius,
               backgroundColor: Colors.black,
               child: ClipOval(
                 child: Image.asset(
                   'assets/images/logo.png',
-                  width: 80,
-                  height: 80,
+                  width: avatarRadius * 1.6,
+                  height: avatarRadius * 1.6,
                   color: Color(0xFFFED700),
                   //fit: BoxFit.cover,
                 ),
@@ -154,32 +137,32 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
           ),
         ),
 
-        const SizedBox(height: 10),
-        const Text(
+        SizedBox(height: screenHeight * 0.012),
+        Text(
           'ADVANCE IT',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: titleFontSize,
             fontWeight: FontWeight.bold,
             color: Colors.black87,
           ),
         ),
-        const SizedBox(height: 5),
+        SizedBox(height: screenHeight * 0.008),
         //_buildSimplePhoneNumber(),
         // const SizedBox(height: 2),
         // Gold Member badge
-        const Text(
+        Text(
           'Advance Leader',
           style: TextStyle(
-            fontSize: 16,
+            fontSize: subtitleFontSize,
             //fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
         ),
-        const SizedBox(height: 2),
+        SizedBox(height: screenHeight * 0.005),
         Text(
           'Advance Affiliate ID: 123612',
           style: TextStyle(
-            fontSize: 16,
+            fontSize: subtitleFontSize,
             color: Colors.black,
             //fontWeight: FontWeight.bold,
           ),
@@ -284,7 +267,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
       DrawerMenuItem(
         assetImage: 'assets/icons/policy.png',
         title: 'গোপনীয়তা নীতি',
-        onTap: () => _navigateToPage(context, '/privacy-policy'),
+        onTap: () => _navigateToPage(context, '/privacypolicy'),
         imageSize: 33,
         iconColor: Colors.purple.shade800,
       ),
@@ -508,10 +491,7 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
             padding: const EdgeInsets.all(10),
             child: const Text(
               'আপনি কি নিশ্চিত যে আপনি লগ আউট করতে চান?',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black87,
-              ),
+              style: TextStyle(fontSize: 16, color: Colors.black87),
             ),
           ),
           actions: [
@@ -522,7 +502,10 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 8,
+                ),
               ),
               child: const Text(
                 'বাতিল',
@@ -542,7 +525,10 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 8,
+                ),
               ),
               child: const Text(
                 'লগ আউট',

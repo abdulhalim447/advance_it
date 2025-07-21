@@ -82,16 +82,54 @@ Advance IT Platform is committed to providing you with secure, transparent, and 
       ),
       child: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 3.0),
-            child: Positioned.fill(
-              child: Image.asset(
-                'assets/images/privacy_policy.jpg',
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return const SizedBox();
-                },
+          // Background gradient fallback
+          Container(
+            width: double.infinity,
+            height: 180,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xFF2E7D32), Color(0xFF4CAF50)],
               ),
+            ),
+          ),
+          // Image overlay
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/privacy_policy.jpg',
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                // Fallback UI when image fails to load
+                return Container(
+                  width: double.infinity,
+                  height: 180,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Color(0xFF1976D2), Color(0xFF42A5F5)],
+                    ),
+                  ),
+                  child: const Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.privacy_tip, size: 60, color: Colors.white),
+                        SizedBox(height: 8),
+                        Text(
+                          'Privacy Policy',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ],

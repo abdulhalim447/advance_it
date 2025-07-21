@@ -46,8 +46,8 @@ class IncomeSummary extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const IncomeCardScreen(
                       incomeType: 'আজকের দিনের ইনকাম',
-                      amount: '80.00',
-                      date: '10-07-2025',
+                      amount: '1200.10',
+                      date: '16-07-2025',
                     ),
                   ),
                 );
@@ -66,8 +66,8 @@ class IncomeSummary extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const IncomeCardScreen(
                       incomeType: 'গতকালের ইনকাম',
-                      amount: '120.00',
-                      date: '10-07-2025',
+                      amount: '1500.20',
+                      date: '16-07-2025',
                     ),
                   ),
                 );
@@ -86,8 +86,8 @@ class IncomeSummary extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const IncomeCardScreen(
                       incomeType: 'গত ৭ দিনের ইনকাম',
-                      amount: '750.00',
-                      date: '10-07-2025',
+                      amount: '7500.30',
+                      date: '16-07-2025',
                     ),
                   ),
                 );
@@ -106,8 +106,8 @@ class IncomeSummary extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const IncomeCardScreen(
                       incomeType: 'গত ৩০ দিনের ইনকাম',
-                      amount: '850.00',
-                      date: '10-07-2025',
+                      amount: '25000.40',
+                      date: '16-07-2025',
                     ),
                   ),
                 );
@@ -126,8 +126,8 @@ class IncomeSummary extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const IncomeCardScreen(
                       incomeType: ' এখন পর্যন্ত সর্বমোট ইনকাম',
-                      amount: '1870.00',
-                      date: '10-07-2025',
+                      amount: '75000.50',
+                      date: '16-07-2025',
                     ),
                   ),
                 );

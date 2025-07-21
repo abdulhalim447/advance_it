@@ -1,18 +1,31 @@
 import 'package:advance_it_ltd/screens/advance_nitimala/advamce_nitimala.dart';
+import 'package:advance_it_ltd/screens/profile_section/additional_info.dart';
+import 'package:advance_it_ltd/screens/profile_section/adrees_screen.dart';
 import 'package:advance_it_ltd/screens/income_point_scection/advance_point.dart';
 import 'package:advance_it_ltd/screens/income_summary/income_summary.dart';
 import 'package:advance_it_ltd/screens/privacy_policy/privacy_policy.dart';
+import 'package:advance_it_ltd/screens/profile_section/documents_upload.dart';
+import 'package:advance_it_ltd/screens/profile_section/dream_screen.dart';
+import 'package:advance_it_ltd/screens/profile_section/nominee_screen.dart';
+import 'package:advance_it_ltd/screens/profile_section/personal_info.dart';
+import 'package:advance_it_ltd/screens/profile_section/profile-screen.dart';
+import 'package:advance_it_ltd/screens/see_more_projects/see_more_projects_screen.dart';
 import 'package:advance_it_ltd/screens/settings/settings_screen.dart';
 import 'package:advance_it_ltd/screens/shofotnama/sofotnama_screen.dart';
 import 'package:advance_it_ltd/screens/support_section/support_screen.dart';
+import 'package:advance_it_ltd/screens/uddokta_section/uddokta_screen.dart';
+import 'package:advance_it_ltd/providers/animation_providers.dart';
+import 'package:advance_it_ltd/providers/address_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'screens/mobile_layout.dart';
 import 'screens/smart_earning_section/leadership_screen.dart';
 import 'screens/income_point_scection/income_point_screen.dart';
 import 'screens/about_us/about_us_screen.dart';
 import 'screens/paymen_method_section/add_payment_method.dart';
 import 'screens/paymen_method_section/payment_methods_screen.dart';
+import 'screens/profile_section/basic_info_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,35 +58,53 @@ class SelfAppClone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Advance IT LTD',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-        //fontFamily: 'SolaimanLipi',
-        appBarTheme: const AppBarTheme(
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: Colors.white,
-            statusBarIconBrightness: Brightness.dark,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => GridAnimationProvider()),
+        ChangeNotifierProvider(create: (_) => PageTransitionProvider()),
+        ChangeNotifierProvider(create: (_) => AnimationSettingsProvider()),
+        ChangeNotifierProvider(create: (_) => AddressProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Advance IT LTD',
+        theme: ThemeData(
+          primarySwatch: Colors.yellow,
+          //fontFamily: 'SolaimanLipi',
+          appBarTheme: const AppBarTheme(
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Colors.white,
+              statusBarIconBrightness: Brightness.dark,
+            ),
           ),
         ),
+        home: MobileLayout(),
+        routes: {
+          '/dashboard': (context) => const MobileLayout(),
+          '/smart-earning': (context) => const LeadershipScreen(),
+          '/see-more-projects': (context) => const SeeMoreProjectsScreen(),
+          '/income-point': (context) => const IncomePointScreen(),
+          '/advance-point': (context) => const AdvancePointScreen(),
+          '/about': (context) => const AboutUsScreen(),
+          '/add-payment-method': (context) => const AddPaymentMethod(),
+          '/payment-methods': (context) => const PaymentMethodsScreen(),
+          '/sofotnama': (context) => const SofotnamaScreen(),
+          '/support': (context) => const SupportScreen(),
+          '/nitimala': (context) => const AdvanceNitimalaScreen(),
+          '/privacypolicy': (context) => const PrivacyPolicy(),
+          '/income-summary': (context) => const IncomeSummary(),
+          '/settings': (context) => const SettingsScreen(),
+          '/uddokta': (context) => const UddoktaScreen(),
+          '/profile': (context) => const ProfileScreenWidget(),
+          '/basic-info': (context) => const BasicInfoScreen(),
+          '/personal-info': (context) => const PersonalInfoScreen(),
+          '/documents': (context) => const DocumentsUploadScreen(),
+          '/address': (context) => const AddressScreen(),
+          '/nominee': (context) => const NomineeScreen(),
+          '/additional-info': (context) => const AdditionalInfoScreen(),
+          '/dream-info': (context) => const DreamScreen(),
+        },
       ),
-      home: MobileLayout(),
-      routes: {
-        '/dashboard': (context) => const MobileLayout(),
-        '/smart-earning': (context) => const LeadershipScreen(),
-        '/income-point': (context) => const IncomePointScreen(),
-        '/advance-point': (context) => const AdvancePointScreen(),
-        '/about': (context) => const AboutUsScreen(),
-        '/add-payment-method': (context) => const AddPaymentMethod(),
-        '/payment-methods': (context) => const PaymentMethodsScreen(),
-        '/sofotnama': (context) => const SofotnamaScreen(),
-        '/support': (context) => const SupportScreen(),
-        '/nitimala': (context) => const AdvanceNitimalaScreen(),
-        '/privacy-policy': (context) => const PrivacyPolicy(),
-        '/income-summary': (context) => const IncomeSummary(),
-        '/settings': (context) => const SettingsScreen(),
-      },
     );
   }
 }

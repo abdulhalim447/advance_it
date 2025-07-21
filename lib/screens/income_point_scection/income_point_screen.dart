@@ -87,7 +87,7 @@ class IncomePointScreen extends StatelessWidget {
                 ),
                 SizedBox(width: 4),
                 Text(
-                  '100.55',
+                  '9500.55',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

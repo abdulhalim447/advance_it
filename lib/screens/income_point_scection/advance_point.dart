@@ -87,7 +87,7 @@ class AdvancePointScreen extends StatelessWidget {
                 ),
                 SizedBox(width: 4),
                 Text(
-                  '100.55',
+                  '2000.99',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

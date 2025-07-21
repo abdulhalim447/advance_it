@@ -1,4 +1,6 @@
 import 'package:advance_it_ltd/screens/e-commerce/ecom_screen/product_list_screen.dart';
+import 'package:advance_it_ltd/screens/see_more_projects/see_more_projects_screen.dart';
+import 'package:advance_it_ltd/widgets/banner_slider.dart';
 import 'package:advance_it_ltd/widgets/custom_slider.dart';
 import 'package:flutter/material.dart';
 import '../constants/app_constants.dart';
@@ -6,9 +8,14 @@ import '../widgets/custom_app_bar_widget.dart';
 import '../widgets/navigation_drawer_widget.dart';
 import '../widgets/bottom_navigation_bar_widget.dart';
 
-class MobileLayout extends StatelessWidget {
+class MobileLayout extends StatefulWidget {
   const MobileLayout({super.key});
 
+  @override
+  State<MobileLayout> createState() => _MobileLayoutState();
+}
+
+class _MobileLayoutState extends State<MobileLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +40,8 @@ class MobileLayout extends StatelessWidget {
           _buildServiceTabs(),
           //const SizedBox(height: 10),
           _buildSliderBanner(),
+          const SizedBox(height: 10),
+          const BannerSlider(),
           const SizedBox(height: 10),
           const ProductListScreen(),
         ],
@@ -136,7 +145,7 @@ class MobileLayout extends StatelessWidget {
       },
       {
         'icon': "assets/icons/whatsapp.png",
-        'label': 'ওয়াটসঅ্যাপ',
+        'label': 'হোয়াটসঅ্যাপ',
         'color': Colors.green,
         'isAsset': true,
       },
@@ -223,13 +232,13 @@ class MobileLayout extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.0),
+            padding: EdgeInsets.symmetric(vertical: 10.0),
             child: Text(
-              "আপনার জন্য নির্বাচিত প্রোজেক্টসমূহ",
+              "আপনার জন্য নির্বাচিত প্রোজেক্ট সমূহ",
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'SolaimanLipi',
+                //fontFamily: 'SolaimanLipi',
                 color: Colors.black,
               ),
             ),
@@ -241,7 +250,7 @@ class MobileLayout extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
             ),
-            margin: const EdgeInsets.only(top: 4),
+            margin: const EdgeInsets.only(top: 0),
             child: _buildServiceGrid(),
           ),
         ],
@@ -272,130 +281,41 @@ class MobileLayout extends StatelessWidget {
         'route': '/reseller-shop',
       },
       {
-        'icon': 'assets/icons/2.png',
-        'label': 'মোবাইল রিচার্জ',
-        'color': Colors.black,
-        'route': '/mobile-recharge',
-      },
-      {
-        'icon': 'assets/icons/5.png',
-        'label': 'এডভাস একাডেমি',
-        'color': Colors.black,
-        'route': '/advance-academy',
-      },
-      {
         'icon': 'assets/icons/uddokta.png',
         'label': 'অ্যাডভান্স উদ্যোক্তা',
         'color': Colors.black,
         'route': '/uddokta',
       },
       {
-        'icon': 'assets/icons/7.png',
-        'label': 'হেলি রাইড',
+        'icon': 'assets/icons/2.png',
+        'label': 'মোবাইল রিচার্জ',
         'color': Colors.black,
-        'route': '/heli-ride',
+        'route': '/mobile-recharge',
       },
       {
-        'icon': 'assets/icons/8.png',
-        'label': 'টুরিস্ট গাইড',
+        'icon': 'assets/icons/32.png',
+        'label': 'ডিজি সাব',
         'color': Colors.black,
-        'route': '/tourist-guide',
+        'route': '/digi-sub',
+      },
+
+      {
+        'icon': 'assets/icons/35.png',
+        'label': 'লাইভ চ্যানেল',
+        'color': Colors.black,
+        'route': '/live-channel',
       },
       {
-        'icon': 'assets/icons/9.png',
-        'label': 'হজ্জ ওমরা',
+        'icon': 'assets/icons/36.png',
+        'label': 'নিউজ হাব',
         'color': Colors.black,
-        'route': '/hajj-umrah',
+        'route': '/news-hub',
       },
       {
-        'icon': 'assets/icons/11.png',
-        'label': 'মার্কেটপ্লেস',
+        'icon': 'assets/icons/37.png',
+        'label': 'আরো দেখুন',
         'color': Colors.black,
-        'route': '/marketplace',
-      },
-      {
-        'icon': 'assets/icons/12.png',
-        'label': 'এড ওয়ার্ক',
-        'color': Colors.black,
-        'route': '/ad-work',
-      },
-      {
-        'icon': 'assets/icons/13.png',
-        'label': 'জব সলিউশন',
-        'color': Colors.black,
-        'route': '/job-solution',
-      },
-      {
-        'icon': 'assets/icons/14.png',
-        'label': 'ইন্টিরিয়র ডিজাইন',
-        'color': Colors.black,
-        'route': '/interior-design',
-      },
-      {
-        'icon': 'assets/icons/15.png',
-        'label': 'ইভেন্ট ম্যানেজমেন্ট',
-        'color': Colors.black,
-        'route': '/event-management',
-      },
-      {
-        'icon': 'assets/icons/16.png',
-        'label': 'জনপ্রিয় ব্রান্ড',
-        'color': Colors.black,
-        'route': '/popular-brands',
-      },
-      {
-        'icon': 'assets/icons/17.png',
-        'label': 'টিউশন মিডিয়া',
-        'color': Colors.black,
-        'route': '/tuition-media',
-      },
-      {
-        'icon': 'assets/icons/18.png',
-        'label': 'টেকনিশিয়ান',
-        'color': Colors.black,
-        'route': '/technician',
-      },
-      {
-        'icon': 'assets/icons/19.png',
-        'label': 'ডিসকাউন্ট জোন',
-        'color': Colors.black,
-        'route': '/discount-zone',
-      },
-      {
-        'icon': 'assets/icons/20.png',
-        'label': 'ডক্টর সেবা',
-        'color': Colors.black,
-        'route': '/doctor-service',
-      },
-      {
-        'icon': 'assets/icons/21.png',
-        'label': 'ফ্লাইট টিকেট',
-        'color': Colors.black,
-        'route': '/flight-ticket',
-      },
-      {
-        'icon': 'assets/icons/22.png',
-        'label': 'এগ্রো প্রোজেক্ট',
-        'color': Colors.black,
-        'route': '/agro-project',
-      },
-      {
-        'icon': 'assets/icons/23.png',
-        'label': 'কোরআন শিক্ষা',
-        'color': Colors.black,
-        'route': '/quran-education',
-      },
-      {
-        'icon': 'assets/icons/25.png',
-        'label': 'ব্লাড ব্যাংক',
-        'color': Colors.black,
-        'route': '/blood-bank',
-      },
-      {
-        'icon': 'assets/icons/10.png',
-        'label': 'হোটেল বুকিং',
-        'color': Colors.black,
-        'route': '/hotel-booking',
+        'route': '/see-more-projects',
       },
     ];
 
@@ -438,7 +358,17 @@ class MobileLayout extends StatelessWidget {
               final item = allItems[index];
               return InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, item['route']);
+                  // Use custom transition for "See More Projects" screen
+                  if (item['route'] == '/see-more-projects') {
+                    Navigator.of(context).push(
+                      SlideRightToLeftTransition(
+                        page: const SeeMoreProjectsScreen(),
+                        parentContext: context,
+                      ),
+                    );
+                  } else {
+                    Navigator.pushNamed(context, item['route']);
+                  }
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -494,8 +424,38 @@ class MobileLayout extends StatelessWidget {
     return CustomBottomNavigationBar(
       currentIndex: 0,
       onTap: (index) {
-        // Handle navigation
+        _handleBottomNavigation(index);
       },
     );
+  }
+
+  /// Handles bottom navigation bar taps
+  void _handleBottomNavigation(int index) {
+    switch (index) {
+      case 0:
+        // Home - Already on home screen, show feedback
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('আপনি ইতিমধ্যে হোম পেজে আছেন'),
+            backgroundColor: Colors.orange.shade600,
+            duration: const Duration(seconds: 1),
+          ),
+        );
+        break;
+      case 1:
+        // Navigate to Uddokta screen
+        Navigator.pushNamed(context, '/uddokta');
+        break;
+      case 2:
+        // Profile - Add profile navigation when ready
+        Navigator.pushNamed(context, '/profile');
+        break;
+      case 3:
+        // Support - Navigate to support screen
+        Navigator.pushNamed(context, '/support');
+        break;
+      default:
+        break;
+    }
   }
 }

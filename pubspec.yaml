@@ -52,6 +52,9 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   path_provider: ^2.1.2
+
+  # Image
+  image_picker: ^1.0.7
   
   # Utils
   dartz: ^0.10.1
@@ -77,6 +80,7 @@ dev_dependencies:
   # Linting and analysis
   flutter_lints: ^5.0.0
   very_good_analysis: ^5.1.0
+  flutter_svg: ^2.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
