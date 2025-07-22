@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../screens/income_point_scection/income_point_screen.dart';
 
 /// Data model for drawer menu items
 class DrawerMenuItem {
@@ -95,7 +94,6 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
       ),
     );
   }
-
 
   /// Builds the simple profile section
   Widget _buildSimpleProfile(BuildContext context) {

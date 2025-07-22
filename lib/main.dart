@@ -5,7 +5,7 @@ import 'package:advance_it_ltd/screens/income_point_scection/advance_point.dart'
 import 'package:advance_it_ltd/screens/income_summary/income_summary.dart';
 import 'package:advance_it_ltd/screens/privacy_policy/privacy_policy.dart';
 import 'package:advance_it_ltd/screens/profile_section/documents_upload.dart';
-import 'package:advance_it_ltd/screens/profile_section/dream_screen.dart';
+import 'package:advance_it_ltd/screens/profile_section/dream_section/dream_screen.dart';
 import 'package:advance_it_ltd/screens/profile_section/nominee_screen.dart';
 import 'package:advance_it_ltd/screens/profile_section/personal_info.dart';
 import 'package:advance_it_ltd/screens/profile_section/profile-screen.dart';
@@ -26,6 +26,7 @@ import 'screens/about_us/about_us_screen.dart';
 import 'screens/paymen_method_section/add_payment_method.dart';
 import 'screens/paymen_method_section/payment_methods_screen.dart';
 import 'screens/profile_section/basic_info_screen.dart';
+import 'screens/profile_section/dream_section/add_dream_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -103,6 +104,7 @@ class SelfAppClone extends StatelessWidget {
           '/nominee': (context) => const NomineeScreen(),
           '/additional-info': (context) => const AdditionalInfoScreen(),
           '/dream-info': (context) => const DreamScreen(),
+          '/add-dream': (context) => const AddDreamScreen(),
         },
       ),
     );

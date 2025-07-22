@@ -54,7 +54,7 @@ dependencies:
   path_provider: ^2.1.2
 
   # Image
-  image_picker: ^1.0.7
+  image_picker: ^1.1.2
   
   # Utils
   dartz: ^0.10.1

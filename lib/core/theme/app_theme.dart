@@ -12,6 +12,9 @@ class AppTheme {
   static const Color tabBarTextColor = Colors.white;
   static const Color tabBarUnselectedTextColor = Colors.black87;
   static const Color iconBlue = Color(0xFF0D47A1); // Darker blue for icons
+  static const Color cardShadowColor = Color(
+    0x332962FF,
+  ); // Soft blue shadow for cards
 
   // System UI
   static SystemUiOverlayStyle get systemUiStyle => const SystemUiOverlayStyle(

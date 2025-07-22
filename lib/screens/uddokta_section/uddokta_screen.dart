@@ -15,7 +15,9 @@ class UddoktaScreen extends StatelessWidget {
         physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           children: [
+            const SizedBox(height: 10),
             _buildHeader(),
+            const SizedBox(height: 15),
             _buildUddoktaGrid(context),
             const SizedBox(height: 20),
           ],
@@ -28,7 +30,7 @@ class UddoktaScreen extends StatelessWidget {
   Widget _buildHeader() {
     return Container(
       width: double.infinity,
-      //margin: const EdgeInsets.all(16),
+      // margin: const EdgeInsets.symmetric(horizontal: 16),
       //padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -39,7 +41,7 @@ class UddoktaScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: Image.asset(
-        'assets/images/uddokta_banner.jpg',
+        'assets/images/uddonta_banners.jpg',
         width: double.infinity,
       ),
     );
@@ -110,7 +112,7 @@ class UddoktaScreen extends StatelessWidget {
         description: 'ইন্টেরিয়র সেবা দিন',
         subtitle: 'ঘর সাজানোর সেবা প্রদান',
         route: '/interior-partner',
-        gradientColors: [Colors.brown.shade400, Colors.brown.shade600],
+        gradientColors: [Colors.amber, Colors.amber],
       ),
       UddoktaOption(
         assetIcon: 'assets/icons/u14.png',

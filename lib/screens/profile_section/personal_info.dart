@@ -72,7 +72,6 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 children: [
-                  // Parent's Information
                   ProfileInfoCardWidget(
                     icon: Icons.person_outline,
                     iconColor: Colors.blue,
@@ -355,22 +354,17 @@ class ProfileInfoCardWidget extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(icon, color: iconColor, size: 42),
+            Icon(icon, color: iconColor, size: 36),
             const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(color: Colors.grey, fontSize: 14),
-                  ),
-                  const SizedBox(height: 2),
                   TextFormField(
                     initialValue: initialValue,
                     enabled: isEditable,
@@ -379,7 +373,7 @@ class ProfileInfoCardWidget extends StatelessWidget {
                       hintText: hintText,
                       hintStyle: const TextStyle(
                         color: Colors.grey,
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                       border: InputBorder.none,
                       enabledBorder: InputBorder.none,
@@ -445,7 +439,7 @@ class _ProfileDatePickerWidgetState extends State<ProfileDatePickerWidget> {
         child: Row(
           children: [
             SizedBox(width: 16),
-            Icon(widget.icon, color: widget.iconColor, size: 32),
+            Icon(widget.icon, color: widget.iconColor, size: 30),
             SizedBox(width: 16),
             Expanded(
               child: Column(
