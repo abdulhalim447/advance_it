@@ -19,6 +19,7 @@ class _DreamScreenState extends State<DreamScreen> {
       'amount': '700,000',
       'targetDate': DateTime.now(),
       'progress': 1.0,
+      'saved': 700000.0,
     },
   ];
 
@@ -31,6 +32,7 @@ class _DreamScreenState extends State<DreamScreen> {
           'amount': result['amount'],
           'targetDate': result['targetDate'],
           'progress': 0.0,
+          'saved': 0.0,
         });
       });
     }

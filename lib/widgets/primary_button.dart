@@ -4,6 +4,7 @@ class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
   final Color color;
+  final Color textColor;
   final double fontSize;
   final FontWeight fontWeight;
   final double borderRadius;
@@ -14,10 +15,11 @@ class PrimaryButton extends StatelessWidget {
     required this.text,
     this.onPressed,
     this.color = Colors.amberAccent,
+    this.textColor = Colors.black,
     this.fontSize = 18,
     this.fontWeight = FontWeight.bold,
     this.borderRadius = 8,
-    this.padding = const EdgeInsets.symmetric(vertical: 16),
+    this.padding = const EdgeInsets.symmetric(vertical: 14),
   });
 
   @override
@@ -28,17 +30,18 @@ class PrimaryButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
-          padding: padding,
+
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius),
+            borderRadius: BorderRadius.circular(50 / 2),
           ),
+          padding: padding,
         ),
         child: Text(
           text,
           style: TextStyle(
             fontSize: fontSize,
             fontWeight: fontWeight,
-            color: Colors.black,
+            color: textColor,
           ),
         ),
       ),

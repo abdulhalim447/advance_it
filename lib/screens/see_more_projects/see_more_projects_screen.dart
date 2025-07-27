@@ -142,6 +142,12 @@ class _SeeMoreProjectsScreenState extends State<SeeMoreProjectsScreen>
     // Data model for grid items based on the screenshot
     final List<Map<String, dynamic>> serviceItems = [
       {
+        'icon': 'assets/icons/32.png',
+        'label': 'ডিজি সাব',
+        'color': Colors.black,
+        'route': '/digi-sub',
+      },
+      {
         'icon': 'assets/icons/7.png',
         'label': 'হেলি রাইড',
         'color': Colors.black,

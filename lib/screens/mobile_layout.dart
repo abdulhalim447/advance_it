@@ -293,15 +293,15 @@ class _MobileLayoutState extends State<MobileLayout> {
         'route': '/mobile-recharge',
       },
       {
-        'icon': 'assets/icons/32.png',
-        'label': 'ডিজি সাব',
+        'icon': 'assets/icons/pridaymart.png',
+        'label': 'ফ্রাইডে মার্ট',
         'color': Colors.black,
-        'route': '/digi-sub',
+        'route': '/friday-mart',
       },
 
       {
         'icon': 'assets/icons/35.png',
-        'label': 'লাইভ চ্যানেল',
+        'label': 'লাইভ মিডিয়া',
         'color': Colors.black,
         'route': '/live-channel',
       },

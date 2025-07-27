@@ -16,6 +16,12 @@ class AppTheme {
     0x332962FF,
   ); // Soft blue shadow for cards
 
+  // Green colors for auth screens
+  static const Color greenPrimary = Color(0xFF4CAF50); // Main green color
+  static const Color greenDark = Color(
+    0xFF2E7D32,
+  ); // Darker green for gradients
+
   // System UI
   static SystemUiOverlayStyle get systemUiStyle => const SystemUiOverlayStyle(
     statusBarColor: primaryColor,

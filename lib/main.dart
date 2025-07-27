@@ -1,4 +1,10 @@
 import 'package:advance_it_ltd/screens/advance_nitimala/advamce_nitimala.dart';
+import 'package:advance_it_ltd/screens/auth/form_screen.dart';
+import 'package:advance_it_ltd/screens/auth/login_screen.dart';
+import 'package:advance_it_ltd/screens/auth/otp_screen.dart';
+import 'package:advance_it_ltd/screens/auth/signup_screen.dart';
+import 'package:advance_it_ltd/screens/mediahub/live_tv_screen.dart';
+import 'package:advance_it_ltd/screens/newshub/news_gridScren.dart';
 import 'package:advance_it_ltd/screens/profile_section/additional_info.dart';
 import 'package:advance_it_ltd/screens/profile_section/adrees_screen.dart';
 import 'package:advance_it_ltd/screens/income_point_scection/advance_point.dart';
@@ -27,6 +33,7 @@ import 'screens/paymen_method_section/add_payment_method.dart';
 import 'screens/paymen_method_section/payment_methods_screen.dart';
 import 'screens/profile_section/basic_info_screen.dart';
 import 'screens/profile_section/dream_section/add_dream_screen.dart';
+import 'screens/auth/auth_welcome_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -79,7 +86,7 @@ class SelfAppClone extends StatelessWidget {
             ),
           ),
         ),
-        home: MobileLayout(),
+        home: AuthWelcomeScreen(),
         routes: {
           '/dashboard': (context) => const MobileLayout(),
           '/smart-earning': (context) => const LeadershipScreen(),
@@ -105,6 +112,13 @@ class SelfAppClone extends StatelessWidget {
           '/additional-info': (context) => const AdditionalInfoScreen(),
           '/dream-info': (context) => const DreamScreen(),
           '/add-dream': (context) => const AddDreamScreen(),
+          '/auth-welcome': (context) => const AuthWelcomeScreen(),
+          '/news-hub': (context) => const NewsGridScreen(),
+          '/live-channel': (context) => const LiveTvScreen(),
+          '/sign-up': (context) => const SignUpScreen(),
+          '/sign-in': (context) => const LoginScreen(),
+          '/otp_screen': (context) => const OtpScreen(),
+          '/form-screen': (context) => const FormScreen(),
         },
       ),
     );

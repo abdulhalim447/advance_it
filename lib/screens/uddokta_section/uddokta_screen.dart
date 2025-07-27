@@ -228,14 +228,6 @@ class UddoktaScreen extends StatelessWidget {
 
             const SizedBox(height: 4),
 
-            // Subtitle
-            // Text(
-            //   option.subtitle,
-            //   style: TextStyle(fontSize: 10, color: Colors.grey[500]),
-            //   textAlign: TextAlign.center,
-            //   maxLines: 2,
-            //   overflow: TextOverflow.ellipsis,
-            // ),
             const Spacer(),
 
             // Visit button

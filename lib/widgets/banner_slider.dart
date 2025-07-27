@@ -62,11 +62,49 @@ class BannerSlider extends StatelessWidget {
             ),
           ),
         ),
+        Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
+          child: ClipRRect(
+            //borderRadius: BorderRadius.circular(8.0),
+            child: SvgPicture.asset(
+              "assets/images/fridaymart.svg",
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
+          ),
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
+          child: ClipRRect(
+            //borderRadius: BorderRadius.circular(8.0),
+            child: SvgPicture.asset(
+              "assets/images/newshub.svg",
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
+          ),
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
+          child: ClipRRect(
+            //borderRadius: BorderRadius.circular(8.0),
+            child: SvgPicture.asset(
+              "assets/images/mediahub.svg",
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
+          ),
+        ),
       ],
 
       //Slider Container properties
       options: CarouselOptions(
-        height: MediaQuery.of(context).size.height * 0.2, // Responsive height based on screen size
+        height:
+            MediaQuery.of(context).size.height *
+            0.2, // Responsive height based on screen size
         enlargeCenterPage: false,
         autoPlay: true,
         aspectRatio: 16 / 9,
