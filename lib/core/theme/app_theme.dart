@@ -16,6 +16,16 @@ class AppTheme {
     0x332962FF,
   ); // Soft blue shadow for cards
 
+  // Smart Earning Screen Colors
+  static const Color smartEarningCourseGradientStart = Color(0xFF9B3CFC);
+  static const Color smartEarningCourseGradientEnd = Color(0xFF31BDFB);
+  static const Color smartSubscriptionGradientStart = Color(0xFFF8A01A);
+  static const Color smartSubscriptionGradientEnd = Color(0xFFF8D829);
+  static const Color smartEarningButtonGradientStart = Color(0xFF21C5F3);
+  static const Color smartEarningButtonGradientEnd = Color(0xFF2386E8);
+  static const Color smartSubscriptionButtonGradientStart = Color(0xFFF8D829);
+  static const Color smartSubscriptionButtonGradientEnd = Color(0xFFF8A01A);
+
   // Green colors for auth screens
   static const Color greenPrimary = Color(0xFF4CAF50); // Main green color
   static const Color greenDark = Color(

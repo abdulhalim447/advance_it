@@ -18,13 +18,11 @@ class _FormScreenState extends State<FormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBarWidget(showLogo: true, centerTitle: true),
-      drawer: const NavigationDrawerWidget(),
       body: Container(
-        margin: EdgeInsets.only(top: 5),
+        padding: EdgeInsets.only(top: 50),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.orange, Colors.amber.shade500, Colors.yellow],
+            colors: [Colors.amber, Colors.amber],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -151,7 +149,7 @@ class _FormScreenState extends State<FormScreen> {
                         text: 'রেজিস্টার',
 
                         onPressed: () {
-                          Navigator.pushNamed(context, '/dashboard');
+                          Navigator.pushNamed(context, '/greeting');
                         },
                         color: Colors.amber,
                         textColor: Colors.black,
@@ -167,6 +165,8 @@ class _FormScreenState extends State<FormScreen> {
       ),
     );
   }
+
+  // it is a function  that  will  show  the  dialog  when  the  user  click  on  the  button
 }
 
 class _RegistrationTextField extends StatelessWidget {

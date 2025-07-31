@@ -226,7 +226,7 @@ class _SignUpButton extends StatelessWidget {
           padding: EdgeInsets.zero,
         ),
         child: const Text(
-          'SIGN UP',
+          'REGISTER',
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
@@ -264,7 +264,7 @@ class _SignInButton extends StatelessWidget {
           padding: EdgeInsets.zero,
         ),
         child: const Text(
-          'SIGN IN',
+          'LOGIN',
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,

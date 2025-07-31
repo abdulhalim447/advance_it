@@ -263,11 +263,25 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
         imageSize: 40,
       ),
       DrawerMenuItem(
+        assetImage: 'assets/icon/income_report.png',
+        title: 'ইনকাম রিপোর্ট',
+        iconColor: Colors.purple.shade800,
+        onTap: () => _navigateToPage(context, '/income-report'),
+        imageSize: 38,
+      ),
+      DrawerMenuItem(
+        assetImage: 'assets/icon/affiliate_channel.png',
+        title: 'এফিলিয়েট চ্যানেল',
+        iconColor: Colors.purple.shade800,
+        onTap: () => _navigateToPage(context, '/affiliate-channel'),
+        imageSize: 40,
+      ),
+      DrawerMenuItem(
         assetImage: 'assets/icons/policy.png',
         title: 'গোপনীয়তা নীতি',
         onTap: () => _navigateToPage(context, '/privacypolicy'),
         imageSize: 33,
-        iconColor: Colors.purple.shade800,
+        iconColor: Colors.blueAccent.shade700,
       ),
 
       DrawerMenuItem(

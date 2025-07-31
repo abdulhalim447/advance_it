@@ -263,56 +263,57 @@ class _MobileLayoutState extends State<MobileLayout> {
     // Data model for grid items based on the screenshot
     final List<Map<String, dynamic>> serviceItems = [
       {
-        'icon': 'assets/icons/1.png',
+        'icon': 'assets/icon/1.png',
         'label': 'স্মার্ট আর্নিং',
         'color': Colors.black,
-        'route': '/smart-earning',
+        'route': '/normal_user',
+        //'route': '/premium_user',
       },
       {
-        'icon': 'assets/icons/3.png',
+        'icon': 'assets/icon/2.png',
         'label': 'ড্রাইভ প্যাক',
         'color': Colors.black,
         'route': '/drive-pack',
       },
       {
-        'icon': 'assets/icons/4.png',
+        'icon': 'assets/icon/3.png',
         'label': 'রিসেলার শপ',
         'color': Colors.black,
         'route': '/reseller-shop',
       },
       {
-        'icon': 'assets/icons/uddokta.png',
+        'icon': 'assets/icon/4.png',
         'label': 'অ্যাডভান্স উদ্যোক্তা',
         'color': Colors.black,
         'route': '/uddokta',
       },
       {
-        'icon': 'assets/icons/2.png',
+        'icon': 'assets/icon/5.png',
         'label': 'মোবাইল রিচার্জ',
         'color': Colors.black,
         'route': '/mobile-recharge',
       },
       {
-        'icon': 'assets/icons/pridaymart.png',
+        'icon': 'assets/icon/6.png',
         'label': 'ফ্রাইডে মার্ট',
         'color': Colors.black,
         'route': '/friday-mart',
       },
 
       {
-        'icon': 'assets/icons/35.png',
+        'icon': 'assets/icon/7.png',
         'label': 'লাইভ মিডিয়া',
         'color': Colors.black,
         'route': '/live-channel',
       },
       {
-        'icon': 'assets/icons/36.png',
+        'icon': 'assets/icon/8.png',
         'label': 'নিউজ হাব',
         'color': Colors.black,
         'route': '/news-hub',
       },
       {
-        'icon': 'assets/icons/37.png',
+        'icon': 'assets/icon/9.png',
         'label': 'আরো দেখুন',
         'color': Colors.black,
         'route': '/see-more-projects',
@@ -380,13 +381,10 @@ class _MobileLayoutState extends State<MobileLayout> {
                       Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          border: Border.all(
-                            color: AppConstants.primaryColor,
-                            width: 2,
-                          ),
+                          border: Border.all(color: Colors.white, width: 2),
                         ),
                         child: CircleAvatar(
-                          radius: 24,
+                          radius: 28,
                           // backgroundColor: AppConstants.primaryColor,
                           child: Image.asset(
                             item['icon'],
