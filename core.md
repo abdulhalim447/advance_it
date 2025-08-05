@@ -20,7 +20,7 @@ Key Conventions
 1. Use GoRouter or auto_route for navigation and deep linking.
 2. Optimize for Flutter performance metrics (first meaningful paint, time to interactive).
 3. Prefer stateless widgets:
-- Use provider for state management.
+- if need mange state, use Provider.
 - Use colors from AppColors dart file. do not use hardcode. if you need a new color whice is not available here, you can write the excact new color in this dart file to use app.
 
 

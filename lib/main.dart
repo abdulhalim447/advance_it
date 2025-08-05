@@ -1,8 +1,14 @@
 import 'package:advance_it_ltd/screens/advance_nitimala/advamce_nitimala.dart';
+import 'package:advance_it_ltd/screens/affiliate_channel/advance_channel.dart';
+import 'package:advance_it_ltd/screens/affiliate_channel/ak_nojore_amar_channel.dart';
+import 'package:advance_it_ltd/screens/affiliate_channel/my_access_channel.dart';
+import 'package:advance_it_ltd/screens/affiliate_channel/my_affiliate_channel_list.dart';
+import 'package:advance_it_ltd/screens/affiliate_channel/my_leadership_channel_list.dart';
 import 'package:advance_it_ltd/screens/auth/form_screen.dart';
 import 'package:advance_it_ltd/screens/auth/login_screen.dart';
 import 'package:advance_it_ltd/screens/auth/otp_screen.dart';
 import 'package:advance_it_ltd/screens/auth/signup_screen.dart';
+import 'package:advance_it_ltd/screens/affiliate_channel/affiliate_channel_screen.dart';
 import 'package:advance_it_ltd/screens/income_report_section/income_report_screen.dart';
 import 'package:advance_it_ltd/screens/mediahub/live_tv_screen.dart';
 import 'package:advance_it_ltd/screens/newshub/news_gridScren.dart';
@@ -21,6 +27,13 @@ import 'package:advance_it_ltd/screens/settings/settings_screen.dart';
 import 'package:advance_it_ltd/screens/shofotnama/sofotnama_screen.dart';
 import 'package:advance_it_ltd/screens/smart_earning_projects/greeting_confirmed.dart';
 import 'package:advance_it_ltd/screens/smart_earning_projects/normal_customer_screen.dart';
+import 'package:advance_it_ltd/screens/smart_earning_projects/paid_course/amar_course_screen.dart';
+import 'package:advance_it_ltd/screens/smart_earning_projects/paid_course/course_module_screen.dart';
+import 'package:advance_it_ltd/screens/smart_earning_projects/paid_course/course_seller_list.dart';
+import 'package:advance_it_ltd/screens/smart_earning_projects/paid_course/leadership-dtails_screen.dart';
+import 'package:advance_it_ltd/screens/smart_earning_projects/paid_course/leadership_entry_screen.dart';
+import 'package:advance_it_ltd/screens/smart_earning_projects/paid_course/leadership_history_screen.dart';
+import 'package:advance_it_ltd/screens/smart_earning_projects/paid_course/smart_promoter_screen.dart';
 import 'package:advance_it_ltd/screens/smart_earning_projects/payment_screen.dart';
 import 'package:advance_it_ltd/screens/smart_earning_projects/premium_user_screen.dart';
 import 'package:advance_it_ltd/screens/smart_earning_projects/course_overview.dart';
@@ -103,12 +116,22 @@ class SelfAppClone extends StatelessWidget {
             ),
           ),
         ),
-        home: AuthWelcomeScreen(),
+        home: const LoginScreen(),
         routes: {
           '/dashboard': (context) => const MobileLayout(),
+          '/amar-course': (context) => const AmarCourseScreen(),
           '/normal_user': (context) => const NormalCustomerScreen(),
           '/premium_user': (context) => const PremiumUserScreen(),
           '/course-overview': (context) => const CourseOverviewScreen(),
+          '/course_module_screen': (context) => CourseModuleScreen(),
+          '/leadership_entry_screen': (context) =>
+              const LeadershipEntryScreen(),
+          '/leadership-dtails_screen': (context) =>
+              const LeadershipDetailsScreen(),
+          '/leadership_history_screen': (context) =>
+              const LeadershipHistoryScreen(),
+          '/smart_promoter_screen': (context) => const SmartPromoterScreen(),
+          '/course-seller-list': (context) => const CourseSellerListScreen(),
           '/payment_screen': (context) => const PaymentScreen(),
           '/greeting-confirm': (context) => const GreetingConfirmScreen(),
           '/smart-sub-greeting': (context) => const SmartSubGreeting(),
@@ -128,6 +151,15 @@ class SelfAppClone extends StatelessWidget {
           '/income-summary': (context) => const IncomeSummary(),
           '/settings': (context) => const SettingsScreen(),
           '/income-report': (context) => IncomeReportScreen(),
+          '/affiliate-channel': (context) => AffiliateChannelScreen(),
+
+          //affiliate channel section ===============================================
+          '/my_affiliate_channel': (context) => const MyAffiliateChannelList(),
+          '/my_leadership_channel': (context) =>
+              const MyLeadershipChannelList(),
+          '/amar_advance_channel': (context) => const AdvanceChannel(),
+          '/amar-access-channel': (context) => const MyAccessChannel(),
+          '/ak-nojore-amar-channel': (context) => const AkNojoreAmarChannel(),
 
           //============================================================================
           '/uddokta': (context) => const UddoktaScreen(),

@@ -7,8 +7,67 @@ import '../../widgets/navigation_drawer_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 /// Course Overview Screen for Smart Earning Projects
-class SmartSubcriptionOverview extends StatelessWidget {
+class SmartSubcriptionOverview extends StatefulWidget {
   const SmartSubcriptionOverview({super.key});
+
+  @override
+  State<SmartSubcriptionOverview> createState() =>
+      _SmartSubcriptionOverviewState();
+}
+
+class _SmartSubcriptionOverviewState extends State<SmartSubcriptionOverview> {
+  final GlobalKey _paymentSectionKey = GlobalKey();
+  final ScrollController _scrollController = ScrollController();
+
+  void _scrollToPaymentSection() {
+    if (_paymentSectionKey.currentContext != null) {
+      Scrollable.ensureVisible(
+        _paymentSectionKey.currentContext!,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  void _handleConfirm() {
+    final paymentProvider = context.read<PaymentProvider>();
+    final paymentContext = _paymentSectionKey.currentContext;
+
+    bool isPaymentSectionVisible() {
+      if (paymentContext == null) return false;
+      final renderBox = paymentContext.findRenderObject() as RenderBox;
+      final size = renderBox.size;
+      final position = renderBox.localToGlobal(Offset.zero);
+      final screenHeight = MediaQuery.of(context).size.height;
+      final appBarHeight = AppBar().preferredSize.height;
+      // Check if the payment section is reasonably visible on screen
+      return (position.dy + size.height) > appBarHeight &&
+          position.dy < screenHeight;
+    }
+
+    if (!isPaymentSectionVisible()) {
+      _scrollToPaymentSection();
+    } else {
+      if (paymentProvider.termsAccepted) {
+        Navigator.pushNamed(context, '/smart-sub-greeting');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Please select a payment method and accept the terms and conditions.',
+            ),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +81,7 @@ class SmartSubcriptionOverview extends StatelessWidget {
       body: Stack(
         children: [
           SingleChildScrollView(
+            controller: _scrollController,
             child: Padding(
               padding: const EdgeInsets.only(
                 bottom: 80,
@@ -29,28 +89,31 @@ class SmartSubcriptionOverview extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 10),
-                  _CourseHeaderSection(),
-                  SizedBox(height: 10),
-                  _CourseDescriptionSection(),
-                  SizedBox(height: 10),
-                  _courcebuletPointSection(),
-                  SizedBox(height: 3),
-                  PaymentScreenCard(),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
+                  const _CourseHeaderSection(),
+                  const SizedBox(height: 10),
+                  const _CourseDescriptionSection(),
+                  const SizedBox(height: 10),
+                  const _courcebuletPointSection(),
+                  const SizedBox(height: 3),
+                  Container(
+                    key: _paymentSectionKey,
+                    child: const PaymentScreenCard(),
+                  ),
+                  const SizedBox(height: 10),
                 ],
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             left: 0,
             right: 0,
             bottom: 0,
             child: ColoredBox(
               color: Colors.white,
               child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: _CourseActionSection(),
+                padding: const EdgeInsets.all(16.0),
+                child: _CourseActionSection(onConfirm: _handleConfirm),
               ),
             ),
           ),
@@ -252,7 +315,8 @@ class PaymentScreenCard extends StatelessWidget {
 
 /// Course action section with enrollment button
 class _CourseActionSection extends StatelessWidget {
-  const _CourseActionSection();
+  final VoidCallback onConfirm;
+  const _CourseActionSection({required this.onConfirm});
 
   @override
   Widget build(BuildContext context) {
@@ -270,10 +334,7 @@ class _CourseActionSection extends StatelessWidget {
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
             ),
-            onPressed: () {
-              // Handle course enrollment
-              Navigator.pushNamed(context, '/smart-sub-greeting');
-            },
+            onPressed: onConfirm,
           ),
         ),
       ],

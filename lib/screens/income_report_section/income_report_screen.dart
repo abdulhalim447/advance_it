@@ -13,7 +13,7 @@ class IncomeReportScreen extends StatelessWidget {
       'iconColor': Colors.blue,
       'route': '/smart-earning-course',
       'data': {
-        'total': '2550.00', // 150.00 + 200.00 + 700.00 + 1500.00
+        'total': '1500.00',
         'today': '150.00',
         'yesterday': '200.00',
         'last7days': '700.00',
@@ -26,7 +26,7 @@ class IncomeReportScreen extends StatelessWidget {
       'iconColor': Colors.green,
       'route': '/smart-subscription',
       'data': {
-        'total': '4250.00', // 250.00 + 300.00 + 1200.00 + 2500.00
+        'total': '2500.00',
         'today': '250.00',
         'yesterday': '300.00',
         'last7days': '1200.00',
@@ -39,7 +39,7 @@ class IncomeReportScreen extends StatelessWidget {
       'iconColor': Colors.orange,
       'route': '/advance-entrepreneur',
       'data': {
-        'total': '950.00', // 50.00 + 100.00 + 300.00 + 500.00
+        'total': '500.00',
         'today': '50.00',
         'yesterday': '100.00',
         'last7days': '300.00',
@@ -52,7 +52,7 @@ class IncomeReportScreen extends StatelessWidget {
       'iconColor': Colors.purple,
       'route': '/mobile-recharge',
       'data': {
-        'total': '8550.00', // 450.00 + 600.00 + 2500.00 + 5000.00
+        'total': '5000.00',
         'today': '450.00',
         'yesterday': '600.00',
         'last7days': '2500.00',
@@ -65,7 +65,7 @@ class IncomeReportScreen extends StatelessWidget {
       'iconColor': Colors.red,
       'route': '/drive-pack',
       'data': {
-        'total': '2050.00', // 100.00 + 150.00 + 600.00 + 1200.00
+        'total': '1200.00',
         'today': '100.00',
         'yesterday': '150.00',
         'last7days': '600.00',
@@ -78,7 +78,7 @@ class IncomeReportScreen extends StatelessWidget {
       'iconColor': Colors.brown,
       'route': '/reseller-shop',
       'data': {
-        'total': '11650.00', // 750.00 + 900.00 + 4000.00 + 8000.00
+        'total': '8000.00',
         'today': '750.00',
         'yesterday': '900.00',
         'last7days': '4000.00',
@@ -91,7 +91,7 @@ class IncomeReportScreen extends StatelessWidget {
       'iconColor': Colors.teal,
       'route': '/friday-market',
       'data': {
-        'total': '530.00', // 30.00 + 50.00 + 150.00 + 300.00
+        'total': '300.00',
         'today': '30.00',
         'yesterday': '50.00',
         'last7days': '150.00',
@@ -104,7 +104,7 @@ class IncomeReportScreen extends StatelessWidget {
       'iconColor': Colors.amber,
       'route': '/leadership',
       'data': {
-        'total': '17200.00', // 1000.00 + 1200.00 + 5000.00 + 10000.00
+        'total': '10000.00',
         'today': '1000.00',
         'yesterday': '1200.00',
         'last7days': '5000.00',
@@ -124,12 +124,15 @@ class IncomeReportScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 20),
-            Text(
-              'আয় রিপোর্ট',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const SizedBox(height: 8),
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                'ইনকাম রিপোর্ট',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 13),
             ...reportSections
                 .map(
                   (section) => IncomeReportCard(
@@ -171,7 +174,7 @@ class IncomeReportCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 16),
+      margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),

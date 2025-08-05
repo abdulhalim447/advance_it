@@ -266,7 +266,8 @@ class _MobileLayoutState extends State<MobileLayout> {
         'icon': 'assets/icon/1.png',
         'label': 'স্মার্ট আর্নিং',
         'color': Colors.black,
-        'route': '/normal_user',
+        'route': '/amar-course',
+        //'route': '/normal_user',
         //'route': '/premium_user',
       },
       {

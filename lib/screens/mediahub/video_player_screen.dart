@@ -1,3 +1,5 @@
+import 'package:advance_it_ltd/widgets/custom_app_bar_widget.dart';
+import 'package:advance_it_ltd/widgets/navigation_drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -36,6 +38,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBarWidget(),
+      drawer: NavigationDrawerWidget(),
       backgroundColor: Colors.black,
       body: Center(
         child: YoutubePlayerBuilder(
