@@ -106,9 +106,22 @@ This project uses the following major dependencies:
 ## Screenshots
 
 <p align="center">
-  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0004.jpg" alt="Home Screen" width="250" style="margin-right:15px;"/>
-  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0002.jpg" alt="Home Screen" width="250" style="margin-right:15px;"/>
-  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0003.jpg" alt="Home Screen" width="250" style="margin-right:15px;"/>
-  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0003.jpg" alt="Home Screen" width="250" style="margin-right:15px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0002.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0003.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0004.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0005.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0006.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0007.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0008.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0009.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0010.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0011.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0012.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0013.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0014.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0015.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0016.jpg" width="250" style="margin:10px;"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0017.jpg" width="250" style="margin:10px;"/>
 </p>
+
 
