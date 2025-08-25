@@ -101,3 +101,12 @@ This project uses the following major dependencies:
 1. Clone this repository
 2. Run `flutter pub get` to install dependencies
 3. Run `flutter run` to start the application
+
+
+## Screenshots
+
+<p align="center">
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0004.jpg" alt="Home Screen" width="250"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0002.jpg" alt="Home Screen" width="250"/>
+  <img src="https://ozevjsmzqipxejdwxptt.supabase.co/storage/v1/object/public/photos/IMG-20250825-WA0003.jpg" alt="Home Screen" width="250"/>
+</p>
